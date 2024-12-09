@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekolojik Kredi Sistemi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="recycle-icon.png" alt="Ekolojik Kredi Logo">
+        <span>Ekolojik Kredi</span>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Sol Menü -->
+        <nav class="left-menu">
+            <ul>
+                <li><button onclick="showInfo('ekolojikKredi')">Ekolojik Kredi</button></li>
+                <li><button onclick="showInfo('schoolRegistration')">Okul Kaydı</button></li>
+                <li><button onclick="showInfo('studentRegistration')">Öğrenci Kaydı</button></li>
+                <li><button onclick="showInfo('wasteEntry')">Veri Girişi</button></li>
+                <li><button onclick="showInfo('viewData')">Veri Görüntüle</button></li>
+                <li><button onclick="showInfo('aboutUs')">Bize Ulaşın</button></li>
+            </ul>
+        </nav>
+
+        <!-- Sağ Menü (Formlar ve İçerikler) -->
+        <div class="right-content">
+            <!-- Ekolojik Kredi -->
+            <section id="ekolojikKredi" class="info-section">
+                <h2>Ekolojik Kredi Nedir?</h2>
+                <p>Ekolojik kredi, geri dönüşüm ve çevre dostu davranışları teşvik etmek için puan sistemi üzerinden ödüller kazandıran bir projedir. Her atık türü belirli bir puanla değerlendirilir.</p>
+            </section>
+
+            <!-- Okul Kaydı -->
+            <section id="schoolRegistration" class="info-section">
+                <h2>Okul Kaydı</h2>
+                <form id="schoolForm" onsubmit="registerSchool(event)">
+                    <label for="schoolName">Okul Adı:</label>
+                    <input type="text" id="schoolName" required>
+                    <label for="province">İl:</label>
+                    <input type="text" id="province" required>
+                    <label for="district">İlçe:</label>
+                    <input type="text" id="district" required>
+                    <label for="schoolPassword">Okul Şifresi:</label>
+                    <input type="password" id="schoolPassword" required>
+                    <button type="submit">Okul Kaydını Tamamla</button>
+                </form>
+            </section>
+
+            <!-- Öğrenci Kaydı -->
+            <section id="studentRegistration" class="info-section">
+                <h2>Öğrenci Kaydı</h2>
+                <form id="studentForm" onsubmit="registerStudent(event)">
+                    <label for="studentName">Ad:</label>
+                    <input type="text" id="studentName" required>
+                    <label for="studentSurname">Soyad:</label>
+                    <input type="text" id="studentSurname" required>
+                    <label for="studentNumber">Öğrenci Numarası:</label>
+                    <input type="text" id="studentNumber" required>
+                    <label for="studentClass">Sınıf:</label>
+                    <input type="text" id="studentClass" required>
+                    <label for="studentEmail">E-posta:</label>
+                    <input type="email" id="studentEmail" required>
+                    <button type="submit">Öğrenci Kaydını Tamamla</button>
+                </form>
+            </section>
+
+            <!-- Veri Girişi -->
+            <section id="wasteEntry" class="info-section">
+                <h2>Veri Girişi</h2>
+                <form id="wasteForm" onsubmit="submitWasteData(event)">
+                    <label for="studentNumberEntry">Öğrenci Numarası:</label>
+                    <input type="text" id="studentNumberEntry" required>
+                    <label for="wasteType">Atık Türü:</label>
+                    <select id="wasteType">
+                        <option value="plastik">Plastik</option>
+                        <option value="cam">Cam</option>
+                        <option value="pil">Pil</option>
+                        <option value="elektronik">Elektronik</option>
+                        <option value="metal">Metal</option>
+                        <option value="kagit">Kağıt</option>
+                        <option value="yag">Yağ</option>
+                        <option value="tekstik">Tekstil</option>
+                    </select>
+                    <label for="wasteWeight">Atık Miktarı (kg):</label>
+                    <input type="number" id="wasteWeight" required>
+                    <label for="sortingStatus">Ayrıştırıldı mı?</label>
+                    <select id="sortingStatus">
+                        <option value="sorted">Ayrıştırıldı</option>
+                        <option value="unsorted">Ayrıştırılmadı</option>
+                    </select>
+                    <button type="submit">Veri Girişi Yap</button>
+                </form>
+            </section>
+
+            <!-- Veri Görüntüleme -->
+            <section id="viewData" class="info-section">
+                <h2>Veri Görüntüle</h2>
+                <form id="viewForm" onsubmit="viewStudentData(event)">
+                    <label for="viewStudentNumber">Öğrenci Numarası:</label>
+                    <input type="text" id="viewStudentNumber" required>
+                    <label for="viewStudentEmail">Öğrenci E-posta:</label>
+                    <input type="email" id="viewStudentEmail" required>
+                    <button type="submit">Verileri Görüntüle</button>
+                </form>
+                <div id="studentData"></div>
+            </section>
+
+            <!-- Bize Ulaşın -->
+            <section id="aboutUs" class="info-section">
+                <h2>Bize Ulaşın</h2>
+                <p>E-posta: <a href="mailto:ekolojikkreditubitak@gmail.com">ekolojikkreditubitak@gmail.com</a></p>
+                <p>Adres: Torbalı Anadolu Lisesi, İzmir Torbalı</p>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2024 Torbalı Anadolu Lisesi Ekolojik Kredi Sistemi</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
